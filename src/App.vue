@@ -1,12 +1,14 @@
 <script>
 import AppMain from './components/AppMain.vue';
+import SearchBar from './components/SearchBar.vue';
 
 import { store } from "./store";
 import axios from "axios";
 
 export default {
   components: {
-    AppMain
+    AppMain,
+    SearchBar,
   },
 
   data() {
@@ -16,12 +18,15 @@ export default {
   },
 
   methods() {
-
+    // handleSearch() {
+      
+    // }
   }
 }
 </script>
 
 <template>
+  <SearchBar @search="handleSearch"/>
   <AppMain/>
 </template>
 
