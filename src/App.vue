@@ -16,11 +16,26 @@ export default {
       store
     }
   },
+  
+  methods: {
+    handleSearch() {
+      if(this.store.searchKey){
+        this.getMovies();
+      }
+    },
 
-  methods() {
-    // handleSearch() {
-      
-    // }
+    getMovies() {
+      axios.get(`${this.store.apiBase}/search/movie`, {
+        params: {
+          api_key: this.store.searchKey,
+          query: this.store.selectedSearch
+        }
+      }).then((resp) => {
+          this.store.movies = resp.data.results;
+      }).catch(error => {
+        console.log("errore")
+      }) 
+    }
   }
 }
 </script>

@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-    <input type="text" v-model="store.selectedStatus">
+    <input type="text" v-model.trim="store.selectedSearch">
     <button @click="$emit('search')">Search</button>
 </template>
 
