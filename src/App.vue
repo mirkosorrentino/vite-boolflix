@@ -32,6 +32,7 @@ export default {
         }
       }).then((resp) => {
           this.store.movies = resp.data.results;
+          console.log (this.store.movies)
       }).catch(error => {
         console.log("errore")
       }) 
