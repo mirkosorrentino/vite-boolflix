@@ -17,6 +17,10 @@ export default{
     methods: {
       getImgPath (imgPath) {
         return new URL(imgPath, import.meta.url).href;
+      },
+
+      voteOutOfFive() {
+        return Math.ceil(this.movie.vote_average);
       }
     }
 }
@@ -33,7 +37,7 @@ export default{
           <span v-if="availableFlags.includes(movie.original_language)">: <img :src="getImgPath(`../assets/img/${movie.original_language}.png`)" class="ms_flag" alt="flag"></span>
           <span v-else>: {{ movie.original_language }}</span>
         </div>
-        <div><span class="ms_category">Voto</span>: {{ movie.vote_average }} </div>
+        <div><span class="ms_category">Voto</span>: {{ voteOutOfFive }} </div>
         <div><span class="ms_category">Overview</span>: {{ movie.overview }}</div>
       </li>
     </ul>
