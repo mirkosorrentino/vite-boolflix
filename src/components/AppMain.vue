@@ -27,9 +27,9 @@ export default{
 <template>
   <main>
     <ul>
-      <li v-for="movie in store.movies">
-        <div><span class="ms_category">Titolo</span>: {{ movie.title }}</div>
-        <div><span class="ms_category">Titolo originale</span>: {{ movie.original_title }} </div>
+      <li v-for="movie in store.moviesAndTv">
+        <div><span class="ms_category">Titolo</span>: {{ movie.title || movie.name }}</div>
+        <div><span class="ms_category">Titolo originale</span>: {{ movie.original_title || movie.original_name }} </div>
         <div class="ms_nationality">
           <span class="ms_category">Lingua originale</span>
           <span v-if="availableFlags.includes(movie.original_language)">: <img :src="getImgPath(`../assets/img/${movie.original_language}.png`)" class="ms_flag" alt="flag"></span>

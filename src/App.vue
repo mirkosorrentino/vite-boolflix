@@ -21,6 +21,7 @@ export default {
     handleSearch() {
       if(this.store.searchKey){
         this.getMovies();
+        this.getTvSeries();
       }
     },
 
@@ -31,10 +32,24 @@ export default {
           query: this.store.selectedSearch
         }
       }).then((resp) => {
-          this.store.movies = resp.data.results;
-          console.log (this.store.movies)
+          this.store.moviesAndTv = resp.data.results;
+          console.log (this.store.moviesAndTv)
       }).catch(error => {
-        console.log("errore")
+        console.log("errore Film")
+      }) 
+    },
+
+    getTvSeries() {
+      axios.get(`${this.store.apiBase}/search/tv`, {
+        params: {
+          api_key: this.store.searchKey,
+          query: this.store.selectedSearch
+        }
+      }).then((resp) => {
+          this.store.moviesAndTv = resp.data.results;
+          console.log (this.store.moviesAndTv)
+      }).catch(error => {
+        console.log("errore Serie TV")
       }) 
     }
   }
