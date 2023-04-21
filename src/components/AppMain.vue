@@ -11,7 +11,18 @@ export default{
 }
 </script>
 
-<template></template>
+<template>
+  <main>
+    <ul>
+      <li v-for="movie in store.movies">
+        <h3> {{ movie.title }}</h3>
+        <div> {{ movie.original_title }} </div>
+        <div> {{ movie.original_language }} </div>
+        <div> {{ movie.vote_average }} </div>
+      </li>
+    </ul>
+  </main>
+</template>
 
 <style scoped lang="scss">
 @use "../styles/partials/mixins.scss";
