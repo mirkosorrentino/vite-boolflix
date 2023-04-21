@@ -11,9 +11,7 @@ export default{
     },
 
     computed: {
-      isFlagAvailable () {
-        return this.availableFlags.includes (this.cardObj.original_language)
-      }
+      
     },
 
     methods: {
